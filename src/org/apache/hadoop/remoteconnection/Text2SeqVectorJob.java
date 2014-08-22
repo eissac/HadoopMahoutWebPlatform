@@ -65,7 +65,7 @@ public class Text2SeqVectorJob extends AbstractJob {
 	}
 
 	public static void main(String[] args) throws Exception {
-		 Configuration conf = new YarnConfiguration();
+		 Configuration conf = new Configuration();
 		 conf.set("fs.defaultFS", "hdfs://master:8020");
 		 conf.set("mapreduce.framework.name", "yarn");
 		 conf.set("yarn.resourcemanager.address", "master:8032");
