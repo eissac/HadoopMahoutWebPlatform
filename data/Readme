@@ -1,0 +1,4 @@
+
+数据说明（数据来自UCI DataSet）：
+
+1. wine_kmeans.csv文件是uci上的wine数据删除第一列得到的数据；

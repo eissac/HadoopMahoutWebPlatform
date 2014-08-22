@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"> -->
+<web-app version="3.0"   
+    xmlns="http://java.sun.com/xml/ns/javaee"   
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee   
+    http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"> 
+  <display-name></display-name>	
+  <!-- 添加Spring支持 -->
+  <context-param>
+  	<param-name>contextConfigLocation</param-name>
+  	<param-value>classpath:applicationContext.xml</param-value>
+  </context-param>
+  
+  <listener>
+  	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  <!-- 过滤没有配置集群的请求 -->
+  <filter>
+  	<filter-name>hasConfiged</filter-name>
+  	<filter-class>com.fz.filter.ConfigFilter</filter-class>
+  </filter>
+  
+  <!-- 集群是否正在运行 -->
+  <filter>
+  	<filter-name>isRunning</filter-name>
+  	<filter-class>com.fz.filter.IsRunningFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+		<filter-name>hasConfiged</filter-name>
+		<!-- -->
+		<url-pattern>/hadoop_action/*</url-pattern>
+	</filter-mapping>  
+	<filter-mapping>
+		<filter-name>hasConfiged</filter-name>
+		<!-- -->
+		<url-pattern>/mahout_action/*</url-pattern>
+	</filter-mapping>  
+	<filter-mapping>
+		<filter-name>isRunning</filter-name>
+		<!-- -->
+		<url-pattern>/mahout_action/*</url-pattern>
+	</filter-mapping> 
+	
+   <!-- 添加struts2支持 -->
+  <filter>
+  	<filter-name>struts2</filter-name>
+  	<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+  </filter>
+  <filter>
+  	<filter-name>openSessionInViewFilter</filter-name>
+  	<filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
+  	<init-param>
+  		<param-name>singleSession</param-name>
+  		<param-value>true</param-value>
+  	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>struts2</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+	<filter-mapping>
+		<filter-name>openSessionInViewFilter</filter-name>
+		<url-pattern>*.do,*.action</url-pattern>
+	</filter-mapping>  
+	
+	 
+ 
+  
+  <welcome-file-list>
+    <welcome-file>basic.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

@@ -1,0 +1,44 @@
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Basic Layout - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="css/demo.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/basic.js"></script>
+	<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+</head>
+<body class="easyui-layout" >
+		<div data-options="region:'north'" style="height:50px">
+			<br>
+			<h2 align="center">XXXç³»ç»</h2>
+		</div>
+		<div data-options="region:'south',split:true" style="height:0px;"></div>
+		<div data-options="region:'east',split:true" title="å¸®å©" style="width:100px;">
+			<a href="#" class="easyui-linkbutton" onclick="getSelected()">GetSelected</a>
+		</div>
+		<div data-options="region:'west',split:true" title="å¯¼èª" style="width:200px;">
+			<ul id="tt" ></ul>
+		</div>
+		<div data-options="region:'center',title:'Main Title',iconCls:'icon-ok'">
+	
+			<table class="easyui-datagrid"
+					data-options="url:'user/login2.action',method:'get',border:false,singleSelect:true,fit:true,fitColumns:true">
+				<thead>
+					<tr>
+						<th data-options="field:'id'" width="80">ID</th>
+						<th data-options="field:'userName'" width="100">User Name</th>
+						<th data-options="field:'phoneNumber',align:'right'" width="80">Phone Number</th>
+						<th data-options="field:'address',align:'right'" width="80">Address</th>
+						<th data-options="field:'createTime'" width="100">Create Time</th>
+						<th data-options="field:'updateTime',align:'center'" width="100">Update Time</th>
+					</tr>
+				</thead>
+			</table>
+
+		</div>
+
+</body>
+</html>

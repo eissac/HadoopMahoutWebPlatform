@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
+    "http://struts.apache.org/dtds/struts-2.3.dtd">  
+      
+<struts>  
+    <constant name="struts.i18n.encoding" value="UTF-8" />  
+    <constant name="struts.action.extension" value="action" />  
+    <constant name="struts.serve.static.browserCache" value="false" /> 
+    <constant name="struts.devMode" value="true"/>
+    <package name="hadoop_action" namespace="/hadoop_action" extends="struts-default" >  
+        <!-- <action name="login" method="login" class="com.fz.action.LoginAction">  
+            <result name="success">/success.jsp</result>  
+            <result name="error">/login.jsp</result>  
+        </action>  
+        -->
+        <action name="login2" method="getAllUser" class="com.fz.action.LoginAction">  
+            <result name="success">/success.jsp</result>  
+            <result name="error">/login.jsp</result>  
+        </action>  
+        <!-- <action name="test" method="test" class="com.fz.action.TestAction"></action>   -->
+        
+        <action name="hadoop_*" class="hadoop" method="{1}"></action>  
+         
+        
+    </package>  
+    
+    <package name="mahout_action" namespace="/mahout_action" extends="struts-default" >  
+    	<action name="mahoutCluster_*" class="mahoutCluster" method="{1}"></action> 
+    </package>
+      
+</struts> 

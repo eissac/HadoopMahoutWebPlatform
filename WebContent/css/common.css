@@ -1,0 +1,42 @@
+.intro{
+	font-size: 14px;
+	padding-left: 15px;
+	border-bottom: 1px solid #A3BCCF;
+	padding-bottom: 20px;
+	font-weight: bold;
+	margin-top: 25px;
+	margin-bottom: 0;
+}
+.intro2{
+	font-size: 14px;
+	border-bottom: 1px  solid #A3BCCF;
+	padding-left: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-top: 25px;
+	margin-bottom: 0;
+
+}
+
+.submitform input[type="text"]{
+	padding: 3px 8px;
+	border-radius: 3px;
+	border: 1px solid #aaa;
+}
+
+.submitform .l-btn-left span{
+	padding:2px 10px;
+	font-size:14px;
+	
+}
+
+
+#dg th{text-align:center;}
+#dg td{text-align:center; word-wrap:break-word}
+
+
+#pId{
+	line-height: 1.5em;
+	font-family: arial;	
+	padding-left:15px;
+}

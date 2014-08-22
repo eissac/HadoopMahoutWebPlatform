@@ -1,0 +1,23 @@
+[
+	{
+		"id":1,
+		"text":"配置说明",
+		"attributes":{
+					"url":"intro/setup.jsp"
+				}
+	},
+	{
+		"id":2,
+		"text":"Hadoop模块",
+		"attributes":{
+					"url":"intro/hadoop.jsp"
+				}
+	},
+	{
+		"id":2,
+		"text":"Mahout模块",
+		"attributes":{
+					"url":"intro/mahout.jsp"
+				}
+	}
+]
