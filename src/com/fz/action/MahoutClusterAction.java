@@ -2,21 +2,20 @@ package com.fz.action;
 
 import java.io.IOException;
 
-
-
-
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.util.ToolRunner;
 import org.apache.mahout.cf.taste.hadoop.item.RecommenderJob;
-import org.apache.mahout.clustering.kmeans.KMeansDriver;
+import org.apache.mahout.clustering.canopy.CanopyDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.fz.service.hadoop.Text2SeqVectorJob;
+import com.fz.service.mahout.CanopyRunnable;
 import com.fz.service.mahout.JobRunnable;
+import com.fz.service.mahout.KMeansRunnable;
 import com.fz.service.mahout.RandomForestRunnable;
 import com.fz.util.HadoopUtils;
 import com.opensymphony.xwork2.ActionSupport;
@@ -37,6 +36,9 @@ public class MahoutClusterAction extends ActionSupport {
 	private String knum;
 	private String iter;
 	private String distance;
+	
+	private String t1;
+	private String t2;
 	
 	// build random forest
 	private String datasetpath;
@@ -73,10 +75,30 @@ public class MahoutClusterAction extends ActionSupport {
 				"-x",iter,
 				"-cl",
 				"-xm","mapreduce"};
-		HadoopUtils.getFs().delete(new Path(outputpath), true);
+		org.apache.mahout.common.HadoopUtil.delete(HadoopUtils.getConf(), new Path(outputpath));
 		System.out.println(outputpath);
-		new Thread(new JobRunnable(new KMeansDriver(),args)).start();
+		new Thread(new KMeansRunnable(args)).start();
 	}
+	
+	
+	/**
+	 * canopy算法调用
+	 * @throws Exception 
+	 */
+	public void canopy() throws Exception {
+		HadoopUtils.initialCurrentJobs(2);
+		String [] args={
+				"-i",inputpath,
+				"-o",outputpath,
+				"-dm",distance,
+				"-t1",t1,
+				"-t2",t2,
+				"-cl"};
+		
+		org.apache.mahout.common.HadoopUtil.delete(HadoopUtils.getConf(), new Path(outputpath));
+		new Thread(new CanopyRunnable(args)).start();
+	}
+	
 	/**
 	 * 随机森林建树 
 	 * @throws IllegalArgumentException
@@ -227,5 +249,17 @@ public class MahoutClusterAction extends ActionSupport {
 	}
 	public void setRecommendNum(String recommendNum) {
 		this.recommendNum = recommendNum;
+	}
+	public String getT1() {
+		return t1;
+	}
+	public void setT1(String t1) {
+		this.t1 = t1;
+	}
+	public String getT2() {
+		return t2;
+	}
+	public void setT2(String t2) {
+		this.t2 = t2;
 	}
 }

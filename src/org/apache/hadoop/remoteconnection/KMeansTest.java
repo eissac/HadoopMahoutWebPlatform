@@ -1,14 +1,9 @@
 package org.apache.hadoop.remoteconnection;
 
-import java.io.IOException;
-
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.util.ToolRunner;
 import org.apache.hadoop.yarn.conf.YarnConfiguration;
 import org.apache.mahout.clustering.kmeans.KMeansDriver;
-
-import com.fz.util.HadoopUtils;
 
 public class KMeansTest {
 	public static void main(String[] args) throws Exception{

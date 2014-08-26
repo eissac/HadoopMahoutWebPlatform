@@ -51,6 +51,13 @@
 			"text":"聚类算法",
 			"children":[{
 				"id":1211,
+				"text":"Canopy算法",
+				"attributes":{
+					"url":"mahout/cluster/canopy.jsp",
+					"title":"canopy"
+				}
+			},{	
+				"id":1212,
 				"text":"Kmeans算法",
 				"attributes":{
 					"url":"mahout/cluster/kmeans.jsp",

@@ -19,9 +19,9 @@ public class KMeansRunnable implements Runnable {
 		try {
 			ToolRunner.run(conf, new KMeansDriver(), args);
 		} catch (Exception e) {
-//			e.printStackTrace();
 			MahoutClusterAction.log.info("调用KmeansDriver()出错");
 			MahoutClusterAction.log.info(e.getMessage());
+		}finally{
 			HadoopUtils.RUNNING=false;
 		}
 	}
