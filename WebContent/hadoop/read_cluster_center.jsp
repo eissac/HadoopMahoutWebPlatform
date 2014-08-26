@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <tr>
                     <td>聚类中心路径:</td>
                     <td><input class="easyui-validatebox" size="50" type="text" name="input" 
-                    value="/user/Administrator/output/user.txt" data-options="required:true"></input></td>
+                    value="hdfs://master:8020/kmeans/center/part-randomSeed" data-options="required:true"></input></td>
                 </tr>
                 
             </table>

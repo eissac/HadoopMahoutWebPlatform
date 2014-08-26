@@ -28,17 +28,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <tr>
                     <td>输入文件路径:</td>
                     <td><input class="easyui-validatebox" size="60" type="text" name="inputpath" 
-                    	value="hdfs://node33:8020/user/Administrator/input/wine_001" data-options="required:true"></input></td>
+                    	value="hdfs://master:8020/kmeans/traindata/part-m-00000" data-options="required:true"></input></td>
                 </tr>
                 <tr>
                     <td>输出文件路径:</td>
                     <td><input class="easyui-validatebox" size="60" type="text" name="outputpath"
-                    	value="hdfs://node33:8020/user/Administrator/output/001" data-options="required:true"></input></td>
+                    	value="hdfs://master:8020/kmeans/output" data-options="required:true"></input></td>
                 </tr>
                  <tr>
                     <td>初始聚类中心路径:</td>
                     <td><input class="easyui-validatebox" size="60" type="text" name="centerpath"
-                    	value="hdfs://node33:8020/user/Administrator/center/" data-options="required:true"></input></td>
+                    	value="hdfs://master:8020/kmeans/center" data-options="required:true"></input></td>
                 </tr>
                 <tr>
                     <td>聚类个数:</td>

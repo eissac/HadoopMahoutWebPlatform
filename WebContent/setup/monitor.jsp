@@ -23,27 +23,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
 	<script type="text/javascript" src="js/basic.js"></script>
-	<!--
+
 	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-<!-- 	<script type="text/javascript"> 
+
+	<script type="text/javascript"> 
 	
 	 
 		function myrefresh() 
 		{ 
-		    //   window.location.reload();
-		    // $('#dg').datagrid('reload'); 
+		     window.location.reload();
+		     $('#dg').datagrid('reload'); 
 		     console.info("aaaaaaaaa");
-		    // setTimeout('myrefresh',1000); //指定1秒刷新一次 
-		    // setInterval('myrefre');
+		     setTimeout('myrefresh',1000); //指定1秒刷新一次 
+		     setInterval('myrefre');
 		} 
 		setInterval(myrefresh,1000); 
-	//	myrefresh();
-	</script> -->
+		myrefresh();
+	</script> 
   </head>
   
   <body>
-  <!-- <a href="#" class="easyui-linkbutton" onclick="doMonitor()">doMonitor</a> -->
+  <a href="#" class="easyui-linkbutton" onclick="doMonitor()">doMonitor</a> 
   <div >
   	<p class="intro">作业监控页面</p>
   </div>

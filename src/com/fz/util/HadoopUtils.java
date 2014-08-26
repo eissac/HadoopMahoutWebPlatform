@@ -46,13 +46,10 @@ public class HadoopUtils {
 		Configuration conf = new Configuration();
 		conf.set("fs.defaultFS", "hdfs://master:8020");
         conf.set("yarn.resourcemanager.address", "master:8032"); 
-
         conf.set("mapreduce.framework.name", "yarn");  
-//        conf.set("mapred.remote.os", "Linux");
-        // this is necessary
+        conf.set("mapred.jar", "jar.jar");
         conf.set(MRConfig.MAPREDUCE_APP_SUBMISSION_CROSS_PLATFORM, "true");
-//		conf.set("fs.defaultFS", "hdfs://192.168.137.113:8020");
-//      conf.set("yarn.resourcemanager.address", "192.168.137.113:8050"); 
+
         return conf;
 	}
 	public static FileSystem getLocalFs() throws IOException{

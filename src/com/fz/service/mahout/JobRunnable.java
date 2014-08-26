@@ -20,9 +20,10 @@ public  class JobRunnable implements Runnable {
 	public void run() {
 		try {
 			Configuration conf =HadoopUtils.getConf();
-			ToolRunner.run(conf, job,args);
+			System.out.println(conf.get("mapred.jar"));
+			ToolRunner.run(conf, job, args);
 		} catch (Exception e) {
-//			e.printStackTrace();
+			e.printStackTrace();
 			MahoutClusterAction.log.info("调用KmeansDriver()出错");
 			MahoutClusterAction.log.info(e.getMessage());
 			HadoopUtils.RUNNING=false;

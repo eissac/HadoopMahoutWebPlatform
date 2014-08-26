@@ -60,7 +60,7 @@ public class Text2SeqVectorJob extends AbstractJob {
 		// System.out.println(conf.get("mapreduce.job.reduces"));
 		FileInputFormat.setInputPaths(job, in);
 		FileOutputFormat.setOutputPath(job, out);
-
+		System.out.println(conf.get("mapred.jar"));
 		return job.waitForCompletion(true) ? 0 : -1;
 	}
 
@@ -70,9 +70,7 @@ public class Text2SeqVectorJob extends AbstractJob {
 		 conf.set("mapreduce.framework.name", "yarn");
 		 conf.set("yarn.resourcemanager.address", "master:8032");
 
-//		Configuration conf = new Configuration();
-//		conf.set("fs.defaultFs", "hdfs://master:8020");
-
+		 conf.set("mapred.jar", "jars\\jar.jar");
 		
 		
 		String[] arg = { "-i", "hdfs://master:8020/kmeans/test.txt", "-o",

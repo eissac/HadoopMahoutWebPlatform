@@ -3,8 +3,11 @@ package com.fz.action;
 import java.io.IOException;
 
 
+
+
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.util.ToolRunner;
 import org.apache.mahout.cf.taste.hadoop.item.RecommenderJob;
 import org.apache.mahout.clustering.kmeans.KMeansDriver;
 import org.slf4j.Logger;
@@ -71,6 +74,7 @@ public class MahoutClusterAction extends ActionSupport {
 				"-cl",
 				"-xm","mapreduce"};
 		HadoopUtils.getFs().delete(new Path(outputpath), true);
+		System.out.println(outputpath);
 		new Thread(new JobRunnable(new KMeansDriver(),args)).start();
 	}
 	/**
@@ -118,9 +122,9 @@ public class MahoutClusterAction extends ActionSupport {
 	}*/
 	/**
 	 * kmeans算法输入数据预处理模块
-	 * @throws IOException
+	 * @throws Exception 
 	 */
-	public void text2vector() throws IOException{
+	public void text2vector() throws Exception{
 		HadoopUtils.initialCurrentJobs(1);
 		String [] args={
 				"-i",inputpath,
@@ -128,6 +132,7 @@ public class MahoutClusterAction extends ActionSupport {
 				"-sc",sc
 		};
 		HadoopUtils.getFs().delete(new Path(outputpath), true);
+		System.out.println("kmeans算法输入数据预处理模块");
 		new Thread(new JobRunnable(new Text2SeqVectorJob(), args)).start();
 	}
 	

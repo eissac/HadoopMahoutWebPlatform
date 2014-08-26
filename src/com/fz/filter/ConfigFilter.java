@@ -33,9 +33,7 @@ public class ConfigFilter implements Filter {
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest re= (HttpServletRequest)request;
 		String url =re.getRequestURI();
-		System.out.println(url);
 		if(url!=null||!"".equals(url)){
-			System.out.println(HadoopUtils.getConf() == null);
 			if(url.contains("/hadoop_action/hadoop_setup")){
 				
 				chain.doFilter(request, response);

@@ -104,11 +104,13 @@ public class HadoopAction extends ActionSupport {
 	 * @throws IOException
 	 */
 	public void monitor() throws IOException{
+		System.out.println("it is here");
 		if(!HadoopUtils.RUNNING){// 说明没有初始化，没有监控，所以不需要返回信息
 			return;
 		}
 		// 已经在别的地方初始化了，在这里只需获取任务状态信息，以及判断是否已经运行完成，完成则设置RUNNING为false
 		List<CurrentJobInfo>  list = HadoopUtils.getCurrentJobs();
+		System.out.println(list.size());
 		if(HadoopUtils.checkJobsFinished()){
 			HadoopUtils.RUNNING=false;
 		}

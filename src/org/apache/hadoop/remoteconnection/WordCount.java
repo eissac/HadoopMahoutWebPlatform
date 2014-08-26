@@ -54,13 +54,13 @@ public class WordCount {
 
 	public static void main(String[] args) throws Exception {
 		Configuration conf = new YarnConfiguration();
-		conf.set("fs.defaultFS", "hdfs://master:9100");
+		conf.set("fs.defaultFS", "hdfs://master:8020");
 		conf.set("mapreduce.framework.name", "yarn");
 		conf.set("yarn.resourcemanager.address", "master:8032");
 		conf.set("mapred.jar", "jars\\jar.jar");
 		
-		Path input = new Path("hdfs://master:9100/word.txt");
-		Path output = new Path("hdfs://master:9100/out");
+		Path input = new Path("hdfs://master:8020/word.txt");
+		Path output = new Path("hdfs://master:8020/out");
 		FileSystem fs = FileSystem.get(conf);
 		boolean a = fs.delete(output, true);
 		System.out.println(a);

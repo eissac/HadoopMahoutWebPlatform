@@ -54,7 +54,8 @@ public class HadoopService {
 		conf.set("fs.defaultFS", fsStr);
 		conf.set("yarn.resourcemanager.address", rm);
 		conf.set("mapreduce.framework.name", "yarn"); 
-		conf.set("mapred.jar", "jars/jar.jar");
+		System.out.println(System.getProperty("user.dir"));
+		conf.set("mapred.jar", "jar.jar");
 		FileSystem fs = FileSystem.get(conf);
 		boolean fsOnline=fs.exists(new Path("/"));
 		if(!fsOnline){

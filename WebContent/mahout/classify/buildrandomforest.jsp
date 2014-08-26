@@ -22,17 +22,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <tr>
                     <td>输入文件路径:</td>
                     <td><input class="easyui-validatebox" size="60" type="text" name="inputpath" 
-                    	value="hdfs://node33:8020/user/Administrator/input/glass.dat" data-options="required:true"></input></td>
+                    	value="hdfs://master:8020/df/glass.data" data-options="required:true"></input></td>
                 </tr>
                 <tr>
                     <td>输入描述输出路径:</td>
                     <td><input class="easyui-validatebox" size="60" type="text" name="datasetpath"
-                    	value="hdfs://node33:8020/user/Administrator/input/glass.info" data-options="required:true"></input></td>
+                    	value="hdfs://master:8020/df/glass.info" data-options="required:true"></input></td>
                 </tr>
                 <tr>
                     <td>输出模型路径:</td>
                     <td><input class="easyui-validatebox" size="10" type="text" name="outputpath"
-                    	value="001" data-options="required:true"></input></td>
+                    	value="hdfs://master:8020/df/model" data-options="required:true"></input></td>
                     	
                 </tr>
                  <tr>
