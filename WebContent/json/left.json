@@ -8,21 +8,21 @@
 		
 		"children":[{
 			"id":111,
-			"text":"上传",
+			"text":"上传文件",
 			"attributes":{
 				"url":"hadoop/upload.jsp",
 				"title":"upload"
 			}
 		},{
 			"id":112,
-			"text":"读取",
+			"text":"读取文件",
 			"attributes":{
 				"url":"hadoop/read.jsp",
 				"title":"read"
 			}
 		},{
 			"id":113,
-			"text":"下载",
+			"text":"下载文件",
 			"attributes":{
 				"url":"hadoop/download.jsp",
 				"title":"download"
@@ -36,6 +36,13 @@
 			}
 		},{
 			"id":115,
+			"text":"读取聚类结果集",
+			"attributes":{
+				"url":"hadoop/read_cluster_result.jsp",
+				"title":"readcenter"
+			}
+		},{
+			"id":116,
 			"text":"Text转为Vector",
 			"attributes":{
 				"url":"hadoop/text2vector.jsp",

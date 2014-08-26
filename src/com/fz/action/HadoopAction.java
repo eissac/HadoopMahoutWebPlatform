@@ -99,6 +99,13 @@ public class HadoopAction extends ActionSupport {
 		log.info(" 完成对"+input+" 中心向量的读取");
 	}
 	
+	public void readClusterResult() throws IOException{
+		log.info("结果文件路径为:"+input);
+//		Utils.stringToWriter(MahoutUtils.readCenter(HadoopUtils.getConf(), input));
+		Utils.stringToWriter("test");
+		log.info(" 完成对"+input+" 结果文件的读取");
+	}
+	
 	/**
 	 * 获取监控信息
 	 * @throws IOException
